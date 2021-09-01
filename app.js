@@ -5,8 +5,8 @@ var usersRouter = require("./routes/users");
 const app = express();
 // const port = process.env.PORT || 8000;
 
-// const port = Process.env.PORT || 8000;
-app.set("port", process.env.PORT || 8000);
+const port = process.env.PORT || 8000;
+// app.set("port", process.env.PORT || 8000);
 
 // parse requests of content-type: application/json
 app.use(bodyParser.json());
@@ -30,4 +30,8 @@ app.use("/", usersRouter);
 // do not add localhost here if you are deploying it
 // console.log("server listening to port " + port);
 // });
-app.listen(8000);
+// app.listen(8000);
+
+app.listen(port, () => {
+  console.log(`Connection Established on PORT: ${port}`);
+});
